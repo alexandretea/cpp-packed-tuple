@@ -1,5 +1,5 @@
-#ifndef __CPP_PACKED_TUPLE_METAPROG_ACCUMULATE_HPP__
-#define __CPP_PACKED_TUPLE_METAPROG_ACCUMULATE_HPP__
+#ifndef __CPP_PACKED_TUPLE_METAPROG_TYPELIST_HPP__
+#define __CPP_PACKED_TUPLE_METAPROG_TYPELIST_HPP__
 
 #include <tuple>
 
@@ -14,6 +14,6 @@ struct type_list
 
 } // end of namespace metaprog
 
-#endif // __CPP_PACKED_TUPLE_METAPROG_ACCUMULATE_HPP__
+#endif // __CPP_PACKED_TUPLE_METAPROG_TYPELIST_HPP__
 
 
