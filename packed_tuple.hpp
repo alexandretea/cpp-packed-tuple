@@ -2,22 +2,23 @@
 #define __CPP_PACKED_TUPLE_PACKED_TUPLE_HPP__
 
 #include <memory>
-#include <vector>
+#include <array>
 #include <numeric>
+#include "metaprog_utils.hpp"
 
 // TODO only primitive types
 template <typename ...ContentTypes>
 class PackedTuple
 {
   public:
+    static constexpr size_t kByteSize = metaprog::SizeOf<ContentTypes...>();
+
     PackedTuple()
-      : total_size_(SizeOf<ContentTypes...>()), raw_data_(0)
+      : raw_data_()
     {}
 
   private:
-    const size_t                        total_size_;
-    std::array<uint8_t, SizeOf<ContentTypes...>()> raw_data_;
-    // TODO alias
+    std::array<uint8_t, kByteSize> raw_data_;
 };
 
 #endif // __CPP_PACKED_TUPLE_PACKED_TUPLE_HPP__
