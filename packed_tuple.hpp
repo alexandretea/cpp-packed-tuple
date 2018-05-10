@@ -12,10 +12,17 @@ class PackedTuple
 {
   public:
     static constexpr size_t kByteSize = metaprog::SizeOf<ContentTypes...>();
+    using TypeList = metaprog::type_list<ContentTypes...>;
 
     PackedTuple()
       : raw_data_()
     {}
+
+    template <size_t I>
+    std::add_lvalue_reference<std::add_const<typename TypeList::template type<I>>> Get() const
+    {
+      return 0;
+    }
 
   private:
     std::array<uint8_t, kByteSize> raw_data_;
