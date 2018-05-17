@@ -8,7 +8,10 @@ namespace metaprog {
 template <typename T, size_t N, size_t I = N - 1>
 constexpr T Accumulate(std::array<T, N> const& container)
 {
-  if constexpr (I == 0) {
+  if constexpr (N == 0) {
+    return T();
+
+  } else if constexpr (I == 0) {
     return std::get<I>(container);
 
   } else {
@@ -18,6 +21,7 @@ constexpr T Accumulate(std::array<T, N> const& container)
     return std::get<I>(container) + Accumulate<T, N, I - 1>(container);
   }
 }
+
 } // end of namespace metaprog
 
 #endif // __CPP_PACKED_TUPLE_METAPROG_ACCUMULATE_HPP__
